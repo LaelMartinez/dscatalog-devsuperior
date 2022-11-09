@@ -21,10 +21,10 @@ public class Category implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant createdAT;
+	private Instant createdAt;
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant updateAT;
+	private Instant updateAt;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,21 +56,21 @@ public class Category implements Serializable{
 	}
 
 	public Instant getCreatesAT() {
-		return createdAT;
+		return createdAt;
 	}
 
 	public Instant getUpdateAT() {
-		return updateAT;
+		return updateAt;
 	}
 
 	@PrePersist
 	public void prePersist() {
-		createdAT = Instant.now();
+		createdAt = Instant.now();
 	}
 
 	@PreUpdate
 	public void preUpate() {
-		updateAT = Instant.now();
+		updateAt = Instant.now();
 	}
 
 	@Override
